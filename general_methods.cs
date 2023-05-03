@@ -14,7 +14,6 @@ namespace datos_escuela
     class general_methods
     {
         //ABRIR VENTANAS
-
         //Abrir login
         public void A_login(Window ventanaActual)
         {
@@ -62,32 +61,9 @@ namespace datos_escuela
             Admon_profesores open_admon_personal = new Admon_profesores();
             open_admon_personal.Show();
         }
-        //-----------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
 
-        //VALIDACIONES DE CAMPOS
-        // Metodo para Limpiar los campos de una ventana
-        public void LimpiarCampos(DependencyObject obj)
-        {
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
-            {
-                var child = VisualTreeHelper.GetChild(obj, i);
-
-                if (child is TextBox)
-                {
-                    ((TextBox)child).Clear();                    
-                }
-                else if (child is ComboBox)
-                {
-                    ((ComboBox)child).SelectedIndex = -1;
-                }
-                else if (child is CheckBox)
-                {
-                    ((CheckBox)child).IsChecked = false;
-                }
-                LimpiarCampos(child);
-            }
-        }
-
+        //VALIDACIONES DE CAMPOS  
         //Validar que solo se ingresen numeros
         public void soloNumeros(object sender)
         {
@@ -122,6 +98,55 @@ namespace datos_escuela
             return "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ".Contains(c);
         }
 
+        // Método para convertir a mayúsculas el texto ingresado en un TextBox
+        public void ConvertirAMayusculas(TextBox textBox)
+        {
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                textBox.Text = textBox.Text.ToUpper();
+                textBox.SelectionStart = textBox.Text.Length;
+            }
+        }
+
+        //Primera letra de cada palabra en Mayuscula        
+        public void PrimeraLetraAMayusculas(TextBox textBox)
+        {
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                TextInfo textInfo = new CultureInfo("es-ES", false).TextInfo;
+                textBox.Text = textInfo.ToTitleCase(textBox.Text);
+                textBox.SelectionStart = textBox.Text.Length;
+            }
+        }
+
+
+
+        //-------------------------------------------------------------------------------------------------------------
+
+        //GESTION DE CAMPOS
+        // Metodo para Limpiar los campos de una ventana
+        public void LimpiarCampos(DependencyObject obj)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+                var child = VisualTreeHelper.GetChild(obj, i);
+
+                if (child is TextBox)
+                {
+                    ((TextBox)child).Clear();
+                }
+                else if (child is ComboBox)
+                {
+                    ((ComboBox)child).SelectedIndex = -1;
+                }
+                else if (child is CheckBox)
+                {
+                    ((CheckBox)child).IsChecked = false;
+                }
+                LimpiarCampos(child);
+            }
+        }        
+
         //Deshabililitar campos
         public void inhabilitarControles(params Control[] controles)
         {
@@ -139,7 +164,7 @@ namespace datos_escuela
                 control.IsEnabled = true;
             }
         }
-        //--------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
 
     }
 }

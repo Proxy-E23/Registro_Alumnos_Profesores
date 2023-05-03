@@ -267,44 +267,46 @@
     </Window.Resources>
 
     <Grid x:Name="grid_alumnos" Margin="0,7,0,-7">
-        
-        <TextBox x:Name="txt_matricula" Style="{StaticResource TextBoxStyle}" Margin="115,85,0,0" Width="280" HorizontalAlignment="Left"/>
-        
+
+        <TextBox x:Name="txt_matricula" Text="ERBG10190258" Style="{StaticResource TextBoxStyle}" Margin="115,85,0,0" Width="280" HorizontalAlignment="Left" TextChanged="txt_matricula_TextChanged"/>
+
         <ComboBox x:Name="combbx_aula" HorizontalAlignment="Left" Margin="494,92,0,0" VerticalAlignment="Top" Width="98">
             <ComboBoxItem>1-A</ComboBoxItem>
-            <ComboBoxItem>2-A</ComboBoxItem>
-            <ComboBoxItem>3-A</ComboBoxItem>
-            <ComboBoxItem>4-A</ComboBoxItem>
-            <ComboBoxItem>5-A</ComboBoxItem>
-            <ComboBoxItem>6-A</ComboBoxItem>
             <ComboBoxItem>1-B</ComboBoxItem>
+            <ComboBoxItem>2-A</ComboBoxItem>
             <ComboBoxItem>2-B</ComboBoxItem>
+            <ComboBoxItem>3-A</ComboBoxItem>
             <ComboBoxItem>3-B</ComboBoxItem>
+            <ComboBoxItem>4-A</ComboBoxItem>
             <ComboBoxItem>4-B</ComboBoxItem>
+            <ComboBoxItem>5-A</ComboBoxItem>
             <ComboBoxItem>5-B</ComboBoxItem>
+            <ComboBoxItem>6-A</ComboBoxItem>
             <ComboBoxItem>6-B</ComboBoxItem>
         </ComboBox>
-        
-        <TextBox x:Name="txt_nombre" Style="{StaticResource TextBoxStyle}" Margin="10,206,0,0" Width="360" HorizontalAlignment="Left"/>
-        <TextBox x:Name="txt_apelido_1" Style="{StaticResource TextBoxStyle}" Margin="375,206,0,0" Width="195" HorizontalAlignment="Left"/>
-        <TextBox x:Name="txt_apelido_2" HorizontalAlignment="Left" Margin="575,206,0,0" Style="{StaticResource TextBoxStyle}" Width="200"/>
-        
-        <TextBox x:Name="txt_calle" Style="{StaticResource TextBoxStyle}" Margin="10,362,0,0" Width="243" HorizontalAlignment="Left"/>
+
+        <TextBox x:Name="txt_nombre" Style="{StaticResource TextBoxStyle}" Margin="10,206,0,0" Width="360" HorizontalAlignment="Left" TextChanged="txt_nombre_TextChanged"/>
+        <TextBox x:Name="txt_apelido_1" Style="{StaticResource TextBoxStyle}" Margin="375,206,0,0" Width="195" HorizontalAlignment="Left" TextChanged="txt_apelido_1_TextChanged"/>
+        <TextBox x:Name="txt_apelido_2" HorizontalAlignment="Left" Margin="575,206,0,0" Style="{StaticResource TextBoxStyle}" Width="200" TextChanged="txt_apelido_2_TextChanged"/>
+
+        <TextBox x:Name="txt_calle" Style="{StaticResource TextBoxStyle}" Margin="10,362,0,0" Width="243" HorizontalAlignment="Left" TextChanged="txt_calle_TextChanged"/>
         <TextBox x:Name="txt_numero" Style="{StaticResource TextBoxStyle}" Margin="258,362,0,0" Width="80" HorizontalAlignment="Left" TextChanged="txt_Anumero_TextChanged"/>
-        <TextBox x:Name="txt_colonia" Style="{StaticResource TextBoxStyle}" Margin="345,362,0,0" Width="355" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txt_colonia" Style="{StaticResource TextBoxStyle}" Margin="345,362,0,0" Width="355" HorizontalAlignment="Left" TextChanged="txt_colonia_TextChanged"/>
         <TextBox x:Name="txt_cp" Style="{StaticResource TextBoxStyle}" Margin="705,362,0,0" Width="70" HorizontalAlignment="Left" TextChanged="txt_Acp_TextChanged"/>
-        <TextBox x:Name="txt_ciudad" Style="{StaticResource TextBoxStyle}" Margin="6,456,0,0" Width="359" HorizontalAlignment="Left"/>
-        <TextBox x:Name="txt_estado" Style="{StaticResource TextBoxStyle}" Margin="370,456,0,0" Width="140" HorizontalAlignment="Left"/>
-        <TextBox x:Name="txt_email" Style="{StaticResource TextBoxStyle}" Margin="515,456,0,0" Width="200" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txt_ciudad" Style="{StaticResource TextBoxStyle}" Margin="6,456,0,0" Width="359" HorizontalAlignment="Left" TextChanged="txt_ciudad_TextChanged"/>
+        <TextBox x:Name="txt_estado" Style="{StaticResource TextBoxStyle}" Margin="370,456,0,0" Width="140" HorizontalAlignment="Left" TextChanged="txt_estado_TextChanged"/>
+        <TextBox x:Name="txt_email" Style="{StaticResource TextBoxStyle}" Margin="515,456,0,0" Width="200" HorizontalAlignment="Left" TextChanged="txt_email_TextChanged"/>
         <TextBox x:Name="txt_telefono" Style="{StaticResource TextBoxStyle}" Margin="10,565,0,0" Width="170" HorizontalAlignment="Left" TextChanged="txt_Atelefono_TextChanged"/>
-        
+
         <DatePicker x:Name="dp_fecha" HorizontalAlignment="Left" Margin="206,576,0,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="btn_excel" Content="Exportar a Excel" Style="{StaticResource addButtonStyle}" Click="ExportarExcel_Click" Margin="540,545,0,0" HorizontalAlignment="Left" Height="52" Width="200"/>
 
         <Button x:Name="btn_agregar" Content="Agregar" Style="{StaticResource addButtonStyle}" Margin="218,637,0,0" Width="76" HorizontalAlignment="Left" Click="btn_Aagregar_Click"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" Style="{StaticResource cancelButtonStyle}" Margin="360,637,0,0" Width="76" HorizontalAlignment="Left" Click="btn_Acancelar_Click"/>
         <Button x:Name="btn_volver" Content="Volver" Style="{StaticResource backButtonStyle}" Margin="494,637,0,0" Width="76" HorizontalAlignment="Left" Click="btn_Avolver_Click"/>
-    
-        <Label x:Name="lbl_titulo" Content="Registro de Alumnos" Style="{StaticResource Labelstyle}" Margin="10,10,10,645" Width="380" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label x:Name="lbl_titulo" Content="Registro de Alumnos" Style="{StaticResource Labelstyle}" Margin="10,6,0,0" Width="380" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53"/>
         <Label x:Name="lbl_matricula" Content="Matricula:" Style="{StaticResource Labelstyle}" Margin="10,85,0,0" Width="105" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Label x:Name="lbl_nombre" Content="Nombre:" Style="{StaticResource Labelstyle}" Margin="10,166,0,0" Width="105" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Label x:Name="lbl_apellidos" Content="Apellidos:" Style="{StaticResource Labelstyle}" Margin="375,166,0,0" Width="105" HorizontalAlignment="Left" VerticalAlignment="Top" />
